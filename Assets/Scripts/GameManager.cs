@@ -89,7 +89,13 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore()
     {
-        score++;
+        if (playername =="Tuii")
+        {
+            score += Random.Range(5, 10);
+        } else
+        {
+            score++;
+        }
         scoreText.text = score.ToString();
     }
 
