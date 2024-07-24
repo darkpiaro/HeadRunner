@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.SetString("playername", "");
+        PlayerPrefs.SetInt("highscore", 0);
         if (Instance != null)
         {
             DestroyImmediate(gameObject);
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameOver.SetActive(false);
+        getReady.SetActive(false);
         playername = PlayerPrefs.GetString("playername");
         if (playername == "")
         {
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
         {
             playerNameInput.SetActive(false);
             getReady.SetActive(true);
+            player.transform.localScale = new Vector3(0.3f, 0.3f, 1f);
         }
     }
 
@@ -70,6 +74,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < pipes.Length; i++) {
             Destroy(pipes[i].gameObject);
         }
+        player.transform.localScale = new Vector3(0.1f, 0.1f, 1f);
     }
 
     public void GameOver()
@@ -106,6 +111,7 @@ public class GameManager : MonoBehaviour
         this.playername = playername;
         playerNameInput.SetActive(false);
         getReady.SetActive(true);
+        player.transform.localScale = new Vector3(0.3f, 0.3f, 1f);
     }
 
     void SaveHighScore()
