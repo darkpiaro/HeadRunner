@@ -94,7 +94,8 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore()
     {
-        if (playername =="Tuii")
+        // พี่นพฝากมา
+        if (playername =="NoppTheKing")
         {
             score += Random.Range(5, 10);
         } else
